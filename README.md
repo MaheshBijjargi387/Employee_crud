@@ -19,7 +19,7 @@ A Django-based web application for managing employees, their departments, and po
 - **Backend**: Django (Python)
 - **Frontend**: HTML, CSS, Bootstrap
 - **Database**: SQLite3 (default)
-- **Admin Panel**: Django Admin
+- 
 
 ---
 
