@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Delete Employee{% endblock %}
+
+{% block content %}
+<div class="card shadow mx-auto" style="max-width: 500px;">
+    <div class="card-header bg-danger text-white">
+        <h4 class="mb-0">Confirm Delete</h4>
+    </div>
+    <div class="card-body">
+        <p>Are you sure you want to delete employee <strong>{{ employee.name }}</strong>?</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            <a href="{% url 'employee_list' %}" class="btn btn-secondary ms-2">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

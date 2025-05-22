@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Employee List{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Employee List</h2>
+
+<a href="{% url 'employee_create' %}" class="btn btn-primary mb-3">+ Add Employee</a>
+
+{% if employees %}
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Position</th>
+            <th>Salary</th>
+            <th style="width: 150px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for emp in employees %}
+        <tr>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.department }}</td>
+            <td>{{ emp.position }}</td>
+            <td>${{ emp.salary }}</td>
+            <td>
+                <a href="{% url 'employee_update' emp.id %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'employee_delete' emp.id %}" class="btn btn-sm btn-danger ms-1">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">No employees found.</div>
+{% endif %}
+
+{% endblock %}
